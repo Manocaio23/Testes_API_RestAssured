@@ -48,4 +48,20 @@ public class JsonUserTest {
 		assertEquals(1,id);
 		
 	}
+	
+	@Test
+	public void SegundoNivel() {
+given()
+		
+		.when()
+			.get("https://restapi.wcaquino.me/users/2")
+		.then()
+		.statusCode(200)
+		.body("id", is(2))
+		.body("name", containsString("Joaquina"))
+		.body("endereco.rua", is("Rua dos bobos"))
+		
+		;
+	}
+	
 	}
