@@ -250,6 +250,7 @@ public class VerbosTest {
 		
 		;
 		
+		
 		System.out.println(usuarioInserido);
 	}
 	
