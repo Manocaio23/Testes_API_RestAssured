@@ -19,7 +19,7 @@ public class VerbosTest {
 	public void deveSalvarUser() {
 		given()
 		.log().all()
-		.contentType("application/json") //onteudo que estou enviando para dizer que é um objeto json
+		.contentType("application/json") //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body("{ \"name\": \"Mano caio\",\"age\": 25}")
 		.when()
 			.post("https://restapi.wcaquino.me/users")
@@ -38,15 +38,15 @@ public class VerbosTest {
 	public void NaodeveSalvarUserSemNOme() {//estou testando que nao deve aceitar
 		given()
 		.log().all()
-		.contentType("application/json") //onteudo que estou enviando para dizer que é um objeto json
+		.contentType("application/json") //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body("{ \"age\": 25}")
 		.when()
 			.post("https://restapi.wcaquino.me/users")
 		.then()
 			.log().all()
-			.statusCode(400) //não quero que ele insira
+			.statusCode(400) //nï¿½o quero que ele insira
 			.body("id", is(nullValue()))
-			.body("error", is("Name é um atributo obrigatório"))
+			.body("error", is("Name ï¿½ um atributo obrigatï¿½rio"))
 		;
 	}
 	
@@ -54,7 +54,7 @@ public class VerbosTest {
 	public void deveSalvarUserXML() {
 		given()
 		.log().all()
-		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que é um objeto json
+		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body("	<user><name>Mano caio</name><age>25</age></user>")
 		.when()
 			.post("https://restapi.wcaquino.me/usersXML")
@@ -126,7 +126,7 @@ public class VerbosTest {
 	}
 	
 	@Test
-	public void NãoremoverUserInexistente() {
+	public void NoremoverUserInexistente() {
 		given()
 			.log().all()
 			
@@ -142,17 +142,17 @@ public class VerbosTest {
 		
 	}
 	
-	//capitulo 7 serialização
+	//capitulo 7 serializaï¿½ï¿½o
 	//
 	@Test
 	public void deveSalvarUserMap() { //
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("name", "Usuário via Map");
+		params.put("name", "Usuï¿½rio via Map");
 		params.put("age", 25);
 		
 		given()
 		.log().all()
-		.contentType("application/json") //onteudo que estou enviando para dizer que é um objeto json
+		.contentType("application/json") //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body(params)
 		.when()
 			.post("https://restapi.wcaquino.me/users")
@@ -160,7 +160,7 @@ public class VerbosTest {
 			.log().all()
 			.statusCode(201)
 			.body("id", is(notNullValue()))
-			.body("name", is("Usuário via Map"))
+			.body("name", is("Usuï¿½rio via Map"))
 			.body("age", is(25))
 		
 		;
@@ -173,7 +173,7 @@ public class VerbosTest {
 		
 		given()
 		.log().all()
-		.contentType("application/json") //onteudo que estou enviando para dizer que é um objeto json
+		.contentType("application/json") //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body(user)
 		.when()
 			.post("https://restapi.wcaquino.me/users")
@@ -195,7 +195,7 @@ public class VerbosTest {
 		
 		User usuarioInserido =given()
 		.log().all()
-		.contentType("application/json") //onteudo que estou enviando para dizer que é um objeto json
+		.contentType("application/json") //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body(user)
 		.when()
 			.post("https://restapi.wcaquino.me/users")
@@ -218,7 +218,7 @@ public class VerbosTest {
 		User user =new User("Usuario XML", 40);
 		given()
 		.log().all()
-		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que é um objeto json
+		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body(user)
 		.when()
 			.post("https://restapi.wcaquino.me/usersXML")
@@ -239,7 +239,7 @@ public class VerbosTest {
 		User user =new User("Usuario XML", 40);
 		User usuarioInserido =given()
 		.log().all()
-		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que é um objeto json
+		.contentType(ContentType.XML) //onteudo que estou enviando para dizer que ï¿½ um objeto json
 		.body(user)
 		.when()
 			.post("https://restapi.wcaquino.me/usersXML")

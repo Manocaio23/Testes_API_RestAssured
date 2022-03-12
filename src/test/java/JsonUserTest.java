@@ -76,7 +76,7 @@ given()
 		.then()
 			.statusCode(200)
 			.body("id", is(3))
-			.body("name", containsString("Júlia"))
+			.body("name", containsString("Jï¿½lia"))
 			.body("filhos", hasSize(2))//2objetos dentro ve3rificar tamanho
 			.body("filhos[0].name", is("Zezinho"))// indecsado por array
 			.body("filhos[1].name", is("Luizinho"))
@@ -92,7 +92,7 @@ given()
 			.get("https://restapi.wcaquino.me/users/4")
 		.then()
 			.statusCode(404)
-			.body("error",is("Usuário inexistente"));
+			.body("error",is("Usuï¿½rio inexistente"));
 			
 		;
 	}
@@ -106,7 +106,7 @@ given()
 		.then()
 			.statusCode(200)
 			.body("$",hasSize(3))
-			.body("name",hasItems("João da Silva","Maria Joaquina","Ana Júlia"))
+			.body("name",hasItems("Joï¿½o da Silva","Maria Joaquina","Ana Jï¿½lia"))
 			.body("age[1]", is(25))
 			.body("filhos.name",hasItems(Arrays.asList("Zezinho","Luizinho")))//uma lista contendo o zezinho
 			
@@ -116,7 +116,7 @@ given()
 	}
 	
 	@Test
-	public void verificacoesAvançadas() {
+	public void verificacoesAvanadas() {
 	given()
 		
 		.when()
@@ -124,10 +124,10 @@ given()
 		.then()
 			.statusCode(200)
 			.body("$",hasSize(3))
-			.body("age.findAll{it <= 25}.size()", is(2))//quantos usuario existem até 25 anos
-			.body("age.findAll{it <= 25 && it > 20}.size()", is(1))//usuaruio que tem mais de 20 e até 25 
+			.body("age.findAll{it <= 25}.size()", is(2))//quantos usuario existem atï¿½ 25 anos
+			.body("age.findAll{it <= 25 && it > 20}.size()", is(1))//usuaruio que tem mais de 20 e atï¿½ 25 
 			.body("findAll{it.age <= 25}[0].name", is("Maria Joaquina"))
-			.body("findAll{it.name.contains('n')}.name", hasItems("Maria Joaquina","Ana Júlia"))//verificar todos os elementos que contem n
+			.body("findAll{it.name.contains('n')}.name", hasItems("Maria Joaquina","Ana Jï¿½lia"))//verificar todos os elementos que contem n
 			.body("age.collect{it*2}", hasItems(60,50,40))
 			.body("id.max()", is(3))
 			.body("salary.min()", is(1234.5678f))

@@ -33,7 +33,7 @@ public class UserXMLTest {
 		resBuilder.expectStatusCode(200);
 		resSpec = resBuilder.build();
 		
-		//definindo isso posso retirar tudo do given pois todos os tenstes vão herdar
+		//definindo isso posso retirar tudo do given pois todos os tenstes vï¿½o herdar
 		RestAssured.requestSpecification = recSpec;
 		RestAssured.responseSpecification= resSpec;
 		
@@ -65,7 +65,7 @@ public class UserXMLTest {
 	}
 	
 	@Test
-	public void PesquisasAvançadas() {
+	public void PesquisasAvanadas() {
 		given()
 		
 		.when()
@@ -109,7 +109,7 @@ public class UserXMLTest {
 		.then()
 			.body(hasXPath("count(/users/user)",is("3")))
 			.body(hasXPath("/users/user[@id='1']")) //contem 1?
-			.body(hasXPath("//user[@id='1']"))// vai descer até encontrar
+			.body(hasXPath("//user[@id='1']"))// vai descer atï¿½ encontrar
 			.body(hasXPath("//name[text()='Luizinho']/../../name", is("Ana Julia")))
 			//.body(hasXPath("//name[text()='Ana Julia']", is("")))
 			;
